@@ -13,7 +13,7 @@ const runner = (shouldSkip: boolean) => shouldSkip ? test.skip : test;
 
 days.map(day => {
   const loadInputFrom = (fileName: string): unknown => {
-    return day.transformInput(fs.readFileSync(`./input/${fileName.toLowerCase()}`).toString().split('\n'));
+    return day.transformInput(fs.readFileSync(`./input/${fileName.toLowerCase()}`).toString().trimRight().split('\n'));
   };
   const loadExampleInput = () => loadInputFrom(`${day.constructor.name}example.txt`);
   const loadInput = () => loadInputFrom(`${day.constructor.name}.txt`);

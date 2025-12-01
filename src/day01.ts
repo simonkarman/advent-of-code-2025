@@ -1,4 +1,4 @@
-import { ClassicDay, Skip } from './day';
+import { ClassicDay } from './day';
 
 interface Rotation {
   direction: 'L' | 'R',
@@ -16,8 +16,8 @@ export class Day01 implements ClassicDay<Rotation> {
   getAnswers = () => ({
     exampleA: 3,
     a: 1102,
-    exampleB: 0,
-    b: Skip,
+    exampleB: 6,
+    b: 6175,
   })
 
   solutionA(entries: Rotation[]): number {
@@ -36,11 +36,40 @@ export class Day01 implements ClassicDay<Rotation> {
         timesAtZero += 1;
       }
     }
-
     return timesAtZero;
   }
 
   solutionB(entries: Rotation[]): number {
-    return 0;
+    let dial = 50;
+    let timesThroughZero = 0;
+    for (const entry of entries) {
+      if (entry.direction === 'L') {
+        if (dial - entry.distance <= 0) {
+          timesThroughZero += (dial === 0 ? 0 : 1) + Math.floor((entry.distance - dial) / 100);
+        }
+        dial -= entry.distance;
+      } else {
+        if (dial + entry.distance >= 100) {
+          timesThroughZero += 1 + Math.floor((entry.distance - (100 - dial)) / 100);
+        }
+        dial += entry.distance;
+      }
+
+      dial = ((dial % 100) + 100) % 100;
+    }
+    return timesThroughZero;
   }
 }
+
+/*
+1
+1
+2
+2
+3
+4
+4
+5
+5
+6
+ */
