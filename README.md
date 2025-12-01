@@ -35,6 +35,9 @@ All days are unit tested. You can run smaller s of the tests.
 # run all tests of all days
 npm test
 
+# run all tests of all days and stay in watch mode
+npm run dev-test
+
 # run all tests of single day
 npm run dev-test -- -t "Day01"
 

@@ -1,4 +1,5 @@
 import * as fs from 'fs';
+import { describe, test, expect } from 'vitest';
 import { Day, Skip } from '../src/day';
 import { Day00 } from '../src/day00';
 

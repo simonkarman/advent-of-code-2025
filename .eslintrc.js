@@ -2,7 +2,6 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    'jest/globals': true,
   },
   settings: {
     'import/resolver': {
@@ -21,7 +20,6 @@ module.exports = {
   },
   plugins: [
     '@typescript-eslint',
-    'jest',
   ],
   rules: {
     'max-len': ['error', { code: 150, ignoreComments: true, tabWidth: 2 }],
