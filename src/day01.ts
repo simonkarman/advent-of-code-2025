@@ -1,0 +1,46 @@
+import { ClassicDay, Skip } from './day';
+
+interface Rotation {
+  direction: 'L' | 'R',
+  distance: number,
+}
+
+export class Day01 implements ClassicDay<Rotation> {
+  transformInput(lines: string[]): Rotation[] {
+    return lines.map(e => ({
+      direction: e[0] as Rotation['direction'],
+      distance: Number.parseInt(e.slice(1)),
+    }));
+  }
+
+  getAnswers = () => ({
+    exampleA: 3,
+    a: 1102,
+    exampleB: 0,
+    b: Skip,
+  })
+
+  solutionA(entries: Rotation[]): number {
+    let dial = 50;
+    let timesAtZero = 0;
+    for (const entry of entries) {
+      if (entry.direction === 'L') {
+        dial -= entry.distance;
+      } else {
+        dial += entry.distance;
+      }
+
+      dial = ((dial % 100) + 100) % 100;
+
+      if (dial === 0) {
+        timesAtZero += 1;
+      }
+    }
+
+    return timesAtZero;
+  }
+
+  solutionB(entries: Rotation[]): number {
+    return 0;
+  }
+}
