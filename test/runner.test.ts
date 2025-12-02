@@ -3,10 +3,12 @@ import { describe, test, expect } from 'vitest';
 import { Day, Skip } from '../src/day';
 import { Day00 } from '../src/day00';
 import { Day01 } from '../src/day01';
+import { Day02 } from '../src/day02';
 
 const days: Day<unknown, unknown>[] = [
   new Day00(),
   new Day01(),
+  new Day02(),
 ];
 
 const runner = (shouldSkip: boolean) => shouldSkip ? test.skip : test;
