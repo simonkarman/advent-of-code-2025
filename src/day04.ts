@@ -1,4 +1,4 @@
-import { Day, Skip } from './day';
+import { Day } from './day';
 
 class Grid {
   public width: number;
@@ -60,7 +60,7 @@ class Grid {
       return numberOfAdjacentPaperRolls < 4 ? cellIndex : undefined;
     }).filter(cellIndex => cellIndex !== undefined) as number[];
   }
-};
+}
 
 export class Day04 implements Day<Grid, number> {
   transformInput(lines: string[]): Grid {
