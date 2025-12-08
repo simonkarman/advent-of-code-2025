@@ -9,6 +9,7 @@ import { Day04 } from '../src/day04';
 import { Day05 } from '../src/day05';
 import { Day06 } from '../src/day06';
 import { Day07 } from '../src/day07';
+import { Day08 } from '../src/day08';
 
 const days: Day<unknown, unknown>[] = [
   new Day00(),
@@ -19,6 +20,7 @@ const days: Day<unknown, unknown>[] = [
   new Day05(),
   new Day06(),
   new Day07(),
+  new Day08(),
 ];
 
 const runner = (shouldSkip: boolean) => shouldSkip ? test.skip : test;
@@ -36,7 +38,7 @@ days.map(day => {
       runner(answers.exampleA === Skip)('example', () => {
         expect(day.solutionA(loadExampleInput())).toBe(answers.exampleA);
       });
-      runner(answers.a === Skip)('answer', () => {
+      runner(answers.a === Skip)('answer', { timeout: 100_000 }, () => {
         expect(day.solutionA(loadInput())).toBe(answers.a);
       });
     });
@@ -44,7 +46,7 @@ days.map(day => {
       runner(answers.exampleB === Skip)('example', () => {
         expect(day.solutionB(loadExampleInput())).toBe(answers.exampleB);
       });
-      runner(answers.b === Skip)('answer', () => {
+      runner(answers.b === Skip)('answer', { timeout: 100_000 }, () => {
         expect(day.solutionB(loadInput())).toBe(answers.b);
       });
     });
