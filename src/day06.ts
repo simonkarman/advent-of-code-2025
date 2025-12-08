@@ -59,7 +59,6 @@ export class Day06 implements ClassicDay<string> {
       const operationChar = lines[height - 1][x];
       if (operationChar === '+' || operationChar === '*') {
         currentMathProblem.operation = operationChar as '*' | '+';
-        console.info(currentMathProblem);
 
         // Solve current math problem
         total += this.solve(currentMathProblem);
