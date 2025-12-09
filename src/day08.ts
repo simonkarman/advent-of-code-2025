@@ -1,4 +1,4 @@
-import { ClassicDay, Skip } from './day';
+import { ClassicDay } from './day';
 
 type Position = {
   x: number;
