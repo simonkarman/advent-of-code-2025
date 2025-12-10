@@ -1,5 +1,5 @@
 import * as fs from 'fs';
-import { describe, test, expect } from 'vitest';
+import { describe, expect, test } from 'vitest';
 import { Day, Skip } from '../src/day';
 import { Day00 } from '../src/day00';
 import { Day01 } from '../src/day01';
@@ -11,6 +11,7 @@ import { Day06 } from '../src/day06';
 import { Day07 } from '../src/day07';
 import { Day08 } from '../src/day08';
 import { Day09 } from '../src/day09';
+import { Day10 } from '../src/day10';
 
 const days: Day<unknown, unknown>[] = [
   new Day00(),
@@ -23,6 +24,7 @@ const days: Day<unknown, unknown>[] = [
   new Day07(),
   new Day08(),
   new Day09(),
+  new Day10(),
 ];
 
 const runner = (shouldSkip: boolean) => shouldSkip ? test.skip : test;
